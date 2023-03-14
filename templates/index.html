@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Diabetes Prediction</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" type="text/css" href="static/css/grid.css" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <header>
+    <div class="row">
+      <h1>Diabetes Predictor</h1>
+    </div>
+  </header>
+
+  <body>
+    <div class="login">
+      <h4>Enter the below details to get your results</h4>
+      <form action="{{ url_for('predict')}}" method="post">
+        <input
+          type="text"
+          name="Pregnancies"
+          placeholder="Pregnancies"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Glucose Level"
+          placeholder="Glucose Level"
+          required="required"
+        />
+        <input
+          type="text"
+          name="BloodPressure"
+          placeholder="Blood Pressure"
+          required="required"
+        />
+        <input
+          type="text"
+          name="SkinThickness"
+          placeholder="Skin Thickness"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Insulin"
+          placeholder="Insulin"
+          required="required"
+        />
+        <input type="text" name="BMI" placeholder="BMI" required="required" />
+        <input type="text" name="Age" placeholder="Age" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+        <br />
+        {{ prediction_text }}
+      </form>
+      <br />
+    </div>
+  </body>
+</html>
